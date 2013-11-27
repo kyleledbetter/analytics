@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Analytics App</title>
+	<link href="assets/css/application.css" rel="stylesheet">
+	
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="assets/js/html5shiv.js"></script>
+	<script src="assets/js/respond/respond.min.js"></script>
+	<![endif]-->
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+	<link href="assets/ico/favicon.png" rel="shortcut icon" type="image/x-icon" />
+	<script src="assets/js/modernizr.custom.js"></script>
+</head>
+<body class="no-touch">
+	<!-- begin content -->
+	<div class="content">
+		<div class="row push-bottom">
+			<div class="col-sm-12">
+				<h1 class="page-header">Dashboard <span aria-hidden="true" class="icon-arrow-down-2 text-xs"></span></h1>
+			</div>
+		</div>
+		<div class="row push-bottom-lg">
+			<div class="col-sm-4 text-center separator-right">
+				<p class="h1"><span aria-hidden="true" class="icon-stats-up text-xs"></span> 15%</p>
+				<p class="h4">Sales Change</p>
+			</div>
+			<div class="col-sm-4 text-center separator-right">
+				<p class="h1"><span aria-hidden="true" class="icon-coins text-xs"></span> $5,823</p>
+				<p class="h4">New Sales Total</p>
+			</div>
+			<div class="col-sm-4 text-center">
+				<p class="h1"><span aria-hidden="true" class="icon-users text-xs"></span> 1923</p>
+				<p class="h4">New Members</p>
+			</div>
+		</div>
+
+		<div class="row row-alt push-bottom-lg">
+			<div class="col-sm-12">
+				<div id="chart-1" style="height: 350px; margin: 0 auto"></div>
+			</div>
+		</div>
+
+		<div class="row push-bottom-lg">
+			<div class="col-sm-6">
+				<h2 class="page-header">Employee Performance</h2>
+				<div id="chart-2" style="height: 400px; margin: 0 auto"></div>
+			</div>
+			<div class="col-sm-6">
+				<h2 class="page-header">Team Performance</h2>
+				<div id="chart-3" style="height: 400px; margin: 0 auto"></div>
+			</div>
+		</div>
+
+		<hr />
+		<footer class="text-center text-sm text-muted">
+			<p>&copy; 2013 Kyle Ledbetter</p>
+		</footer>
+	</div>
+	<!-- end content -->
+
+	<!-- begin sidebar -->
+	<div class="sidebar">
+		<div class="sidebar-heading push-top-lg">
+			<a class="sidebar-toggle pull-right btn btn-none btn-"><span aria-hidden="true" class="icon-menu-3 text-sm"></span></a>
+			<a class="sidebar-brand h2" href="#">My Dashboard</a>
+		</div>
+		<div class="text-center push-bottom-lg">
+			<a href=".modal-account" data-toggle="modal" class="panel-avatar has-tooltip" title="Account settings" data-placement="right">
+				<img class="img-circle img-avatar img-active" src="assets/images/avatars/michael_128.jpg" width="70%" alt="...">
+			</a>
+			<h4>Michael Bluth</h4>
+			<h5 class="text-primary-light">CEO</h5>
+		</div>
+		<ul class="nav nav-stacked">
+			<li class="active"><a href="index.html"><span aria-hidden="true" class="icon-dashboard text-success"></span> Dashboard</a></li>
+			<li class=""><a href="sources.html"><span aria-hidden="true" class="icon-cube4 text-danger"></span> Departments</a></li>
+			<li class=""><a href="metrics.html"><span aria-hidden="true" class="icon-chart text-info"></span> Sales History</a></li>
+			<li class=""><a href="users.html"><span aria-hidden="true" class="icon-users text-warning"></span> Members</a></li>
+		</ul>
+		<hr />
+		<div class="text-center">
+			<a href="#" class="btn btn-trans btn-lg"><span aria-hidden="true" class="icon-plus text-md push-right-sm"></span>  New Dashboard</a>
+		</div>
+		<hr />
+		<div class="sidebar-footer">
+			<div class="btn-group">
+				<a href="#" class="btn btn-none btn-lg"><span aria-hidden="true" class="icon-cog"></span></a>
+			</div>
+		</div>
+	</div>
+	<!-- end sidebar -->
+
+	<script src="assets/js/jquery.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/application.js"></script>
+	<script src="assets/js/highcharts.js"></script>
+	
+	<script>
+	// Chart 1
+	$(function () {
+        $('#chart-1').highcharts({
+            chart: {
+                type: 'area',
+                backgroundColor: 'transparent',
+            },
+            title: {
+                text: ''
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                title: {
+                    enabled: false
+                },
+                labels: {
+                    style: {
+                		color: "rgba(255, 255, 255, 0.4)",
+                	}
+                },
+                lineColor: "rgba(255, 255, 255, 0.2)",
+                tickColor: "rgba(255, 255, 255, 0.2)"
+            },
+            yAxis: {
+            	max: 7000,
+                title: {
+                    text: 'Dollars'
+                },
+                labels: {
+                    style: {
+                		color: "rgba(255, 255, 255, 0.4)",
+                	}
+                },
+                gridLineColor: "rgba(255, 255, 255, 0.05)",
+            },
+            credits: {
+            	enabled: false
+            },
+            tooltip: {
+                shared: true,
+                valueSuffix: ' dollars',
+                backgroundColor: '#213649',
+                borderRadius: 0,
+                style: {
+                	color: "#6e97b5",
+                }
+            },
+            plotOptions: {
+                area: {
+                    stacking: 'normal',
+                    lineColor: '#666666',
+                    lineWidth: 1,
+                    marker: {
+                        lineWidth: 1,
+                        lineColor: '#666666',
+                        enabled: false
+                    }
+                },
+                series: {
+	                animation: {
+	                    duration: 2000
+	                }
+	            }
+            },
+            legend: {
+            	borderWidth: 0,
+            	margin: 30,
+            	itemDistance: 30,
+            	itemStyle: {
+                	color: 'rgba(255, 255, 255, 0.5)',
+                	fontSize: '12px',
+                	padding: '8px 20px'
+                }
+            },
+            series: [{
+                name: 'Themes',
+                color: '#BD85E3',
+                data: [502, 1402, 809, 1634, 1402, 3634, 4268]
+            }, {
+                name: 'Plugins',
+                color: '#DCCC5D',
+                data: [106, 221, 111, 1123, 221, 767, 1766]
+            }, {
+                name: 'Modules',
+                color: '#308E75',
+                data: [163, 547, 276, 1823, 547, 729, 628]
+            }, {
+                name: 'Services',
+                color: '#E67054',
+                data: [18, 503, 54, 902, 339, 818, 1201]
+            }]
+        });
+    });
+	</script>
+
+	<script>
+	// Chart 2
+	$(function () {
+        $('#chart-2').highcharts({
+            chart: {
+                type: 'bar',
+                backgroundColor: 'transparent'
+            },
+            title: {
+                text: ''
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: ['Employee'],
+                title: {
+                    text: 'Employee'
+                },
+                labels: {
+                    style: {
+                		color: "rgba(255, 255, 255, 0.4)",
+                	},
+                	enabled: false
+                },
+                lineColor: "rgba(255, 255, 255, 0.2)",
+                tickColor: "rgba(255, 255, 255, 0.2)"
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Sales',
+                    align: 'high'
+                },
+                labels: {
+                	overflow: 'justify',
+                    style: {
+                		color: "rgba(255, 255, 255, 0.4)",
+                	}
+                },
+                dataLabels: {
+                    enabled: true,
+                    style: {
+                        fontWeight: 'bold',
+                        color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                    }
+                },
+                gridLineColor: "rgba(255, 255, 255, 0.08)",
+            },
+            tooltip: {
+                valueSuffix: ' dollars'
+            },
+            plotOptions: {
+                bar: {
+                	borderColor: '#2F475D',
+                    dataLabels: {
+	                    enabled: true,
+	                    format: '{series.name}',
+	                    style: {
+	                        fontWeight: 'bold',
+	                        color: '#6e97b5',
+	                    }
+	                },
+                },
+                series: {
+		            pointWidth: 30,
+		            groupPadding: 0,
+		            animation: {
+	                    duration: 2000
+	                }
+		        }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -40,
+                y: 100,
+                borderWidth: 1,
+                backgroundColor: '#FFFFFF',
+                shadow: true,
+                enabled: false
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: 'Ryan',
+                color: '#DCCF7E',
+                data: [120]
+            }, {
+                name: 'Kyle',
+                color: '#E6756F',
+                data: [492]
+            }, {
+                name: 'Bethany',
+                color: '#3EB5E1',
+                data: [529]
+            }, {
+                name: 'Chris',
+                color: '#BD85E3',
+                data: [684]
+            }, {
+                name: 'Matt R',
+                color: '#308E75',
+                data: [768]
+            }, {
+                name: 'Matt M',
+                color: '#DCCC5D',
+                data: [879]
+            }, {
+                name: 'Stu',
+                color: '#E67054',
+                data: [973]
+            }]
+        });
+    });
+	</script>
+
+	<script>
+	// Chart 3
+	$(function () {
+    $('#chart-3').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,
+            plotShadow: false,
+            backgroundColor: 'transparent'
+        },
+        colors: ['#E67054', '#DCCC5D', '#308E75', '#BD85E3', '#3EB5E1'],
+        title: {
+            text: 'Teams',
+            align: 'center',
+            verticalAlign: 'middle',
+            y: 5,
+            style: {
+                		color: "rgba(255, 255, 255, 0.3)",
+                	}
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        credits: {
+            enabled: false
+        },
+        plotOptions: {
+            pie: {
+            	borderColor: '#2F475D',
+            	borderWidth: 2,
+                dataLabels: {
+                    enabled: true,
+                    distance: -50,
+                    style: {
+                        fontWeight: 'bold',
+                        color: '#2F475D',
+                    }
+                },
+
+            },
+            series: {
+            	animation: {
+                    duration: 2000
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Income share',
+            innerSize: '50%',
+            data: [
+                ['Design',   45.0],
+                ['Engineering',       26.8],
+                ['Marketing', 12.8],
+                ['Support',    8.5],
+                ['Sales',     6.2]
+            ]
+        }]
+    });
+});
+	</script>
+</body>
+</html>
