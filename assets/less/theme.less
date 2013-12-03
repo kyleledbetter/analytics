@@ -29,11 +29,26 @@
     text-decoration: none;
   }
 }
+.text-light {
+  color: lighten(@text-color, 10%);
+}
+.text-dark {
+  color: darken(@text-color, 10%);
+}
 .text-success-light {
   color: @brand-success-light;
 }
 .text-success-dark {
   color: @brand-success-dark;
+}
+.text-message {
+  color: @brand-message;
+}
+.text-message-light {
+  color: @brand-message-light;
+}
+.text-message-dark {
+  color: @brand-message-dark;
 }
 .text-info-light {
   color: @brand-info-light;
@@ -282,4 +297,7 @@
 .img-avatar {
   border: 4px solid @brand-primary-light;
 }
-
+/* Input */
+.form-control {
+  .placeholder (@text-color);
+}

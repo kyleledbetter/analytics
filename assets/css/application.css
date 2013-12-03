@@ -1635,7 +1635,7 @@ output {
   vertical-align: middle;
   background-color: #344f67;
   background-image: none;
-  border: 1px solid #cccccc;
+  border: 1px solid #40637d;
   border-radius: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -3308,7 +3308,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   color: #6e97b5;
   text-align: center;
   background-color: #ffffff;
-  border: 1px solid #cccccc;
+  border: 1px solid #40637d;
   border-radius: 1px;
 }
 .input-group-addon.input-sm {
@@ -6112,11 +6112,26 @@ td.visible-print {
 .text-muted:hover {
   text-decoration: none;
 }
+.text-light {
+  color: #90afc6;
+}
+.text-dark {
+  color: #517e9f;
+}
 .text-success-light {
   color: #49c1a1;
 }
 .text-success-dark {
   color: #1d5546;
+}
+.text-message {
+  color: #3eb5e1;
+}
+.text-message-light {
+  color: #80ceeb;
+}
+.text-message-dark {
+  color: #1c8db6;
 }
 .text-info-light {
   color: #dfc3f1;
@@ -6390,6 +6405,20 @@ textarea.input-xs {
 /* Avatar */
 .img-avatar {
   border: 4px solid #496e90;
+}
+/* Input */
+.form-control:-moz-placeholder {
+  color: #6e97b5;
+}
+.form-control::-moz-placeholder {
+  color: #6e97b5;
+  opacity: 1;
+}
+.form-control:-ms-input-placeholder {
+  color: #6e97b5;
+}
+.form-control::-webkit-input-placeholder {
+  color: #6e97b5;
 }
 .text-xs,
 .text-sm,
